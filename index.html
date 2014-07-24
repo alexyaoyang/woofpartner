@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+	<title>Woof Partner</title>
+	<meta name="description" content="Woof Partner">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/boilerplate.css">
+	<link rel="stylesheet" href="css/app.css">
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/parse-1.2.19.min.js"></script>
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+		<script type="text/javascript">
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-52979214-1', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head>
+	<body>
+		<!--[if lt IE 7]>
+			<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+			<![endif]-->
+			<div class="nav-container">
+				<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+					<div class="container-fluid">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+								<span class="sr-only">Menu</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+							<a class="navbar-brand grayscale" href="/">Woofpartner</a>
+						</div>
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav navbar-right">
+								<li><a class="" href=""></a></li>
+								<li><a class="" href=""></a></li>
+								<li><a class="" href=""></a></li>
+							</ul>
+						</div>
+					</div>
+				</nav>
+			</div>
+
+			<div class="main-container container-fluid">
+				<div class="row background-image">
+					<!--<img src="img/main.png" class="hidden-sm hidden-xs col-md-4">-->
+					<img src="img/pups.png" class="hidden-md hidden-lg col-xs-12">
+					<h1 class="bold col-xs-12 col-md-8 col-md-offset-3 text-center">We are still under construction!</h1>
+					<h2 class="well col-xs-12 col-md-8 col-md-offset-3 text-center">We are dedicated in connecting dog owners to dog professionals. We aim to help you pamper your furry little angel in the most convenient ways. After all he’s not just a dog, he's family.</h2>
+					<h2 class="col-xs-12 col-md-8 col-md-offset-3 text-center">Enter your email for Woofpartner updates!</h2>
+					<form class="form-inline text-center col-xs-12 col-md-8 col-md-offset-3" role="form">
+						<div class="form-group">
+							<input type="email" class="form-control" id="email-interest" placeholder="Enter email">
+						</div>
+						<button class="btn btn-default" onclick="saveEmail($('#email-interest').val())">Submit</button>
+					</form>
+				</div>
+			</div>
+
+			<div class="footer">
+				<div class="col-xs-12">
+					<hr/>
+					<p>Woofpartner &copy; 2014</p>
+				</div>
+			</div>
+			<script type="text/javascript">
+			function saveEmail(email){
+				console.log(email);
+				Parse.initialize("P01d9l8A8LmPHwNyGb3p2SojLkW9Y8AGOYuC980P", "jnHCZa0jTPuNslMHdVHLLXX8ojMWbwYtclERiVw8");
+				var InterestEmail = Parse.Object.extend("InterestEmail");
+				var interestEmail = new InterestEmail();
+		        interestEmail.save({"email":email}, {
+		        success: function(email) {
+					alert('Thank you for your interest! Look out for our updates soon!');
+		        },
+		        error: function(email,error) {
+		        	alert('Sorry, we were not able to add your email to our list. Please send us an support email!');
+		        }
+				});
+			}
+			</script>
+		</body>
+		</html>
