@@ -4,11 +4,14 @@ body, h1, h2, h3, h4, h5, h6 {font-family:"Helvetica Neue",Helvetica, sans-serif
 .vertical-center{display:table}
 .vertical-center *{display:table-cell;vertical-align:middle}
 .nav-container{margin-bottom:60px}
-.navbar-default, .navbar-default .navbar-collapse {font-weight:bold;background-color:#F7931E}
+.navbar-default, .navbar-default .navbar-collapse {font-weight:bold;background-color:white}
 .navbar-default .navbar-brand, .navbar-default .navbar-nav>li>a{color:black;font-family:Noteworthy}
 .navbar-default .navbar-toggle .icon-bar{background-color:black}
 ul.nav a:hover, ul.nav a:focus, ul.nav a:active, .navbar-default a.navbar-brand:hover {color:#5d451f !important;transition:0.5s}
-.navbar-default .navbar-toggle, .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {border-color:#F7931E;background-color:#F7931E}
-@media (min-width: 992px) {.main-container .row{background-image:url('../img/main.png');background-size:contain;padding-bottom:20px}}
-.background-image{background-repeat:no-repeat}
+.navbar-default .navbar-toggle, .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {background-color:white}
+@media (min-width: 992px) {.main-container .background-image{}}
+.background-image{background-repeat:no-repeat;background-image:url('../img/main.jpg');background-size:cover;background-position:center center;height:400px;}
 .footer{font-size: 1.5em;}
+.text-shadow{text-shadow: 1px 1px dimgray, -1px -1px dimgray}
+.black{color:black}
+.mainpage-steps{height:200px;width:200px;}
