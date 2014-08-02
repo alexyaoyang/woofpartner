@@ -9,7 +9,8 @@ body, h1, h2, h3, h4, h5, h6 {font-family:"Helvetica Neue",Helvetica, sans-serif
 .navbar-default .navbar-toggle .icon-bar{background-color:black}
 ul.nav a:hover, ul.nav a:focus, ul.nav a:active, .navbar-default a.navbar-brand:hover {color:#5d451f !important;transition:0.5s}
 .navbar-default .navbar-toggle, .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {background-color:white}
-@media (min-width: 992px) {.main-container .background-image{}}
+@media (min-width: 768px) {#autocomplete{width:30%}}
+@media (max-width: 767px) {#autocomplete{width:100%}}
 .background-image{background-repeat:no-repeat;background-image:url('../img/main.jpg');background-size:cover;background-position:center center;height:400px;}
 .footer{font-size: 1.5em;}
 .text-shadow{text-shadow: 1px 1px dimgray, -1px -1px dimgray}

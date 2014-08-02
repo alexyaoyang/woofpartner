@@ -15,6 +15,7 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/bootstrap-datepicker.js"></script>
 	<script src="js/parse-1.2.19.min.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
 	<!--[if lt IE 9]>
 		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -26,9 +27,16 @@
 		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 		ga('create', 'UA-52979214-1', 'auto');
 		ga('send', 'pageview');
+		
+		var placeSearch, autocomplete;
+		function initialize() {
+		  autocomplete = new google.maps.places.Autocomplete(
+		      (document.getElementById('autocomplete')),
+		      { types: ['geocode'] });
+		}
 	</script>
 	</head>
-	<body>
+	<body onload="initialize()">
 		<!--[if lt IE 7]>
 			<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
 			<![endif]-->
@@ -59,12 +67,13 @@
 				<div class="row background-image">
 					<h1 class="bold col-xs-12 text-center black" style="padding-top:10%;">Find your Woofpartner today!</h1>
 					<!--<img src="img/pups.png" class="hidden-md hidden-lg col-xs-12">-->
-					<form id="email" class="form-inline text-center col-xs-12" role="form">
-						<div class="form-group">
-							<input type="text" class="form-control" id="address" placeholder="Enter your address">
+					<form id="search" class="form-inline text-center col-xs-12" role="form">
+						<div class="form-group" style="width:100%">
+							<input type="text" class="form-control" id="autocomplete" placeholder="Enter your address">
 							<input type="date" class="form-control" id="datepicker" placeholder="Date">
 						</div>
-						<button type="submit" class="btn btn-default">Search</button>
+						<br><br>
+						<button type="submit" class="btn btn-danger">Search</button>
 					</form>
 				</div>
 				<div class="row">
@@ -95,25 +104,12 @@
 			    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 			    return re.test(email);
 			} 
-			$("#email").submit(function(event) {
+			$("#search").submit(function(event) {
 			    event.preventDefault();
-				var emailAdd = $('#email-interest').val();
-				if(validateEmail(emailAdd)){
-				Parse.initialize("P01d9l8A8LmPHwNyGb3p2SojLkW9Y8AGOYuC980P", "jnHCZa0jTPuNslMHdVHLLXX8ojMWbwYtclERiVw8");
-				var InterestEmail = Parse.Object.extend("InterestEmail");
-				var interestEmail = new InterestEmail();
-		        interestEmail.save({email:emailAdd}, {
-		        success: function(interestEmail) {
-					alert('Thank you for your interest! Look out for our updates soon!');
-					location.reload();
-		        },
-		        error: function(interestEmail, error) {
-		        	alert('Sorry, we were not able to add your email to our list. Please send us an support email! '+error.message);
-					location.reload();
-		        }
-				});}
-				else
-					alert('Please enter a valid email!');
+				var address = $('#autocomplete').val();
+				var date = $('#datepicker').val();
+				alert(address);
+				alert(date);
 			}); 
 			</script>
 		</body>
